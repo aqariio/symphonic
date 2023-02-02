@@ -5,6 +5,7 @@ import aqario.symphonic.loot.SetCopperHornSoundLootFunction;
 import aqario.symphonic.recipe.CopperHornRecipe;
 import aqario.symphonic.registry.SymphonicRegistries;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -20,7 +21,7 @@ import net.minecraft.util.registry.Registry;
 
 public class Symphonic implements ModInitializer {
     public static final String MOD_ID = "symphonic";
-    public static final Item COPPER_HORN = new CopperHornItem(new Item.Settings().group(ItemGroup.MISC).maxCount(1), SymphonicInstrumentTags.COPPER_HORNS);
+    public static final Item COPPER_HORN = new CopperHornItem(new FabricItemSettings().group(ItemGroup.MISC).maxCount(1), SymphonicInstrumentTags.COPPER_HORNS);
     public static final SpecialRecipeSerializer<CopperHornRecipe> COPPER_HORN_RECIPE = new SpecialRecipeSerializer<>(CopperHornRecipe::new);
     public static final LootFunctionType SET_COPPER_HORN_INSTRUMENT = Registry.register(Registry.LOOT_FUNCTION_TYPE, id("set_instrument"), new LootFunctionType(new SetCopperHornSoundLootFunction.Serializer()));
 

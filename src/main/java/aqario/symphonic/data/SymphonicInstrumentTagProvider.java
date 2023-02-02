@@ -18,15 +18,15 @@ public class SymphonicInstrumentTagProvider extends FabricTagProvider<SymphonicI
                 .add(SymphonicInstruments.GREAT_COPPER_HORN)
                 .add(SymphonicInstruments.OLD_COPPER_HORN)
                 .add(SymphonicInstruments.PURE_COPPER_HORN)
-                .add(SymphonicInstruments.DRY_COPPER_HORN)
                 .add(SymphonicInstruments.MUMBLE_COPPER_HORN)
+                .add(SymphonicInstruments.DRY_COPPER_HORN)
                 .add(SymphonicInstruments.CLEAR_COPPER_HORN);
 
         this.getOrCreateTagBuilder(SymphonicInstrumentTags.SCREAMING_COPPER_HORNS)
-                .add(SymphonicInstruments.SWEET_COPPER_HORN)
-                .add(SymphonicInstruments.FEARLESS_COPPER_HORN)
+                .add(SymphonicInstruments.FRESH_COPPER_HORN)
                 .add(SymphonicInstruments.SECRET_COPPER_HORN)
-                .add(SymphonicInstruments.FRESH_COPPER_HORN);
+                .add(SymphonicInstruments.FEARLESS_COPPER_HORN)
+                .add(SymphonicInstruments.SWEET_COPPER_HORN);
 
         this.getOrCreateTagBuilder(SymphonicInstrumentTags.COPPER_HORNS)
                 .addTag(SymphonicInstrumentTags.REGULAR_COPPER_HORNS)

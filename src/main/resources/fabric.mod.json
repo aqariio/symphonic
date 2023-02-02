@@ -8,7 +8,7 @@
     "aqario"
   ],
   "contact": {
-    "repo": "https://github.com/PotatoPresident/ReturnCopperHorns"
+    "repo": "https://github.com/aqariio/symphonic"
   },
   "license": "MIT",
   "icon": "assets/symphonic/icon.png",
@@ -18,7 +18,7 @@
       "aqario.symphonic.Symphonic"
     ],
     "fabric-datagen": [
-      "aqario.symphonic.data.SymphonicDatagen"
+      "aqario.symphonic.data.SymphonicDataGenerator"
     ]
   },
   "mixins": [
