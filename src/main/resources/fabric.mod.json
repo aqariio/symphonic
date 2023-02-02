@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "symphonic",
+  "version": "${version}",
+  "name": "Symphonic",
+  "description": "Unfinished symphony",
+  "authors": [
+    "aqario"
+  ],
+  "contact": {
+    "repo": "https://github.com/PotatoPresident/ReturnCopperHorns"
+  },
+  "license": "MIT",
+  "icon": "assets/symphonic/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "aqario.symphonic.Symphonic"
+    ],
+    "fabric-datagen": [
+      "aqario.symphonic.data.SymphonicDatagen"
+    ]
+  },
+  "mixins": [
+    "symphonic.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.9",
+    "fabric": "*",
+    "minecraft": ">=1.19"
+  }
+}

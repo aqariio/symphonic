@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "symphonic:great_copper_horn",
+    "symphonic:old_copper_horn",
+    "symphonic:pure_copper_horn",
+    "symphonic:dry_copper_horn",
+    "symphonic:mumble_copper_horn",
+    "symphonic:clear_copper_horn"
+  ]
+}
