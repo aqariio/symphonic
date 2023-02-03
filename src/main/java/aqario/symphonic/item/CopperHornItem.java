@@ -90,7 +90,7 @@ public class CopperHornItem extends Item {
         return optional.map(copperHornInstrumentHolder -> copperHornInstrumentHolder.value().useDuration()).orElse(0);
     }
 
-    private Optional<Holder<SymphonicInstrument>> getInstrument(ItemStack stack) {
+    public Optional<Holder<SymphonicInstrument>> getInstrument(ItemStack stack) {
         Identifier identifier;
         NbtCompound nbtCompound = stack.getNbt();
         if (nbtCompound != null && (identifier = Identifier.tryParse(nbtCompound.getString(INSTRUMENT_KEY))) != null) {

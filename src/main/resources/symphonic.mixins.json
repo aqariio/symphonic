@@ -4,6 +4,7 @@
 	"package": "aqario.symphonic.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
+		"DispenserBehaviorMixin",
 		"GoatHornItemInvoker"
 	],
 	"client": [],
