@@ -1,14 +1,13 @@
 {
-  "required": true,
-  "minVersion": "0.8",
-  "package": "aqario.symphonic.mixin",
-  "compatibilityLevel": "JAVA_17",
-  "mixins": [
-    "GoatHornItemInvoker"
-  ],
-  "client": [
-  ],
-  "injectors": {
-    "defaultRequire": 1
-  }
+	"required": true,
+	"minVersion": "0.8",
+	"package": "aqario.symphonic.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+		"GoatHornItemInvoker"
+	],
+	"client": [],
+	"injectors": {
+		"defaultRequire": 1
+	}
 }

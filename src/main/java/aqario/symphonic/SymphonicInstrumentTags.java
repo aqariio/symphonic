@@ -2,6 +2,7 @@ package aqario.symphonic;
 
 import aqario.symphonic.registry.SymphonicRegistries;
 import net.minecraft.tag.TagKey;
+import net.minecraft.util.Identifier;
 
 public interface SymphonicInstrumentTags {
     TagKey<SymphonicInstrument> REGULAR_COPPER_HORNS = SymphonicInstrumentTags.of("regular_copper_horns");
@@ -9,6 +10,6 @@ public interface SymphonicInstrumentTags {
     TagKey<SymphonicInstrument> COPPER_HORNS = SymphonicInstrumentTags.of("copper_horns");
 
     private static TagKey<SymphonicInstrument> of(String id) {
-        return TagKey.of(SymphonicRegistries.INSTRUMENT_KEY, Symphonic.id(id));
+        return TagKey.of(SymphonicRegistries.INSTRUMENT_KEY, new Identifier(Symphonic.ID, id));
     }
 }

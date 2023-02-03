@@ -1,7 +1,9 @@
-package aqario.symphonic;
+package aqario.symphonic.sound;
 
+import aqario.symphonic.Symphonic;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import java.util.stream.IntStream;
@@ -18,7 +20,7 @@ public class SymphonicSoundEvents {
     }
 
     private static SoundEvent register(String id) {
-        return Registry.register(Registry.SOUND_EVENT, Symphonic.id(id), new SoundEvent(Symphonic.id(id)));
+        return Registry.register(Registry.SOUND_EVENT, new Identifier(Symphonic.ID, id), new SoundEvent(new Identifier(Symphonic.ID, id)));
     }
 
     private enum CopperHornSoundType {

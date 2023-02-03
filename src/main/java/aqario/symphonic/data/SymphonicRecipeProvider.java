@@ -3,8 +3,9 @@ package aqario.symphonic.data;
 import aqario.symphonic.Symphonic;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.data.server.recipe.ComplexRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.ComplexRecipeJsonFactory;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
+import net.minecraft.util.Identifier;
 
 import java.util.function.Consumer;
 
@@ -15,6 +16,6 @@ public class SymphonicRecipeProvider extends FabricRecipeProvider {
 
     @Override
     protected void generateRecipes(Consumer<RecipeJsonProvider> exporter) {
-        ComplexRecipeJsonBuilder.create(Symphonic.COPPER_HORN_RECIPE).offerTo(exporter, Symphonic.id("copper_horn").toString());
+        ComplexRecipeJsonFactory.create(Symphonic.COPPER_HORN_RECIPE).offerTo(exporter, new Identifier(Symphonic.ID, "copper_horn").toString());
     }
 }

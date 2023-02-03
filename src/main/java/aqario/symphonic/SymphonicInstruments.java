@@ -1,6 +1,8 @@
 package aqario.symphonic;
 
 import aqario.symphonic.registry.SymphonicRegistries;
+import aqario.symphonic.sound.SymphonicSoundEvents;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 
@@ -17,7 +19,7 @@ public interface SymphonicInstruments {
     RegistryKey<SymphonicInstrument> SWEET_COPPER_HORN = SymphonicInstruments.of("sweet_copper_horn");
 
     private static RegistryKey<SymphonicInstrument> of(String id) {
-        return RegistryKey.of(SymphonicRegistries.INSTRUMENT_KEY, Symphonic.id(id));
+        return RegistryKey.of(SymphonicRegistries.INSTRUMENT_KEY, new Identifier(Symphonic.ID, id));
     }
 
     static void registerAndGetDefault(Registry<SymphonicInstrument> registry) {
