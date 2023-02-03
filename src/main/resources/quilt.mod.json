@@ -19,6 +19,7 @@
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
 			"init": "aqario.symphonic.Symphonic",
+			"client_init": "aqario.symphonic.SymphonicClient",
 			"fabric-datagen": "aqario.symphonic.data.SymphonicDataGenerator"
 		},
 		"depends": [
