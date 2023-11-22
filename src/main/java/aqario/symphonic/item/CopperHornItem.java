@@ -1,6 +1,5 @@
 package aqario.symphonic.item;
 
-import aqario.symphonic.Symphonic;
 import aqario.symphonic.SymphonicInstrument;
 import aqario.symphonic.registry.SymphonicRegistries;
 import net.minecraft.client.item.TooltipContext;
@@ -28,11 +27,11 @@ import java.util.Optional;
 
 public class CopperHornItem extends Item {
     private static final String INSTRUMENT_KEY = "instrument";
-    private final TagKey<SymphonicInstrument> instrumentTag;
+    private final TagKey<SymphonicInstrument> validInstruments;
 
-    public CopperHornItem(Settings settings, TagKey<SymphonicInstrument> instrumentTag) {
+    public CopperHornItem(Settings settings, TagKey<SymphonicInstrument> validInstruments) {
         super(settings);
-        this.instrumentTag = instrumentTag;
+        this.validInstruments = validInstruments;
     }
 
     @Override
@@ -45,18 +44,18 @@ public class CopperHornItem extends Item {
         }
     }
 
-    public static ItemStack getStackForInstrument(Item item, Holder<SymphonicInstrument> instrument) {
+    public static ItemStack addInstrument(Item item, Holder<SymphonicInstrument> instrument) {
         ItemStack itemStack = new ItemStack(item);
-        CopperHornItem.setInstrument(itemStack, instrument);
+        addInstrument(itemStack, instrument);
         return itemStack;
     }
 
-    public static void setRandomInstrumentFromTag(ItemStack stack, TagKey<SymphonicInstrument> instrumentTag, RandomGenerator random) {
-        Optional<Holder<SymphonicInstrument>> optional = SymphonicRegistries.INSTRUMENT.getTag(instrumentTag).flatMap(entryList -> entryList.getRandomElement(random));
-        optional.ifPresent(copperHornInstrumentHolder -> CopperHornItem.setInstrument(stack, copperHornInstrumentHolder));
+    public static void addInstrument(ItemStack stack, TagKey<SymphonicInstrument> instrumentTag, RandomGenerator random) {
+        Optional<Holder<SymphonicInstrument>> optional = SymphonicRegistries.INSTRUMENT.getTag(instrumentTag).flatMap(set -> set.getRandomElement(random));
+        optional.ifPresent(symphonicInstrumentHolder -> addInstrument(stack, symphonicInstrumentHolder));
     }
 
-    private static void setInstrument(ItemStack stack, Holder<SymphonicInstrument> instrument) {
+    private static void addInstrument(ItemStack stack, Holder<SymphonicInstrument> instrument) {
         NbtCompound nbtCompound = stack.getOrCreateNbt();
         nbtCompound.putString(INSTRUMENT_KEY, instrument.getKey().orElseThrow(() -> new IllegalStateException("Invalid instrument")).getValue().toString());
     }
@@ -64,8 +63,8 @@ public class CopperHornItem extends Item {
     @Override
     public void appendStacks(ItemGroup group, DefaultedList<ItemStack> stacks) {
         if (this.isInGroup(group)) {
-            for (Holder<SymphonicInstrument> Holder : SymphonicRegistries.INSTRUMENT.getTagOrEmpty(this.instrumentTag)) {
-                stacks.add(CopperHornItem.getStackForInstrument(Symphonic.COPPER_HORN, Holder));
+            for (Holder<SymphonicInstrument> Holder : SymphonicRegistries.INSTRUMENT.getTagOrEmpty(this.validInstruments)) {
+                stacks.add(addInstrument(SymphonicItems.COPPER_HORN, Holder));
             }
         }
     }
@@ -77,7 +76,7 @@ public class CopperHornItem extends Item {
         if (optional.isPresent()) {
             SymphonicInstrument instrument = optional.get().value();
             user.setCurrentHand(hand);
-            CopperHornItem.playSound(world, user, instrument);
+            playSound(world, user, instrument);
             user.getItemCooldownManager().set(this, instrument.useDuration());
             return TypedActionResult.consume(itemStack);
         }
@@ -96,11 +95,8 @@ public class CopperHornItem extends Item {
         if (nbtCompound != null && (identifier = Identifier.tryParse(nbtCompound.getString(INSTRUMENT_KEY))) != null) {
             return SymphonicRegistries.INSTRUMENT.getHolder(RegistryKey.of(SymphonicRegistries.INSTRUMENT_KEY, identifier));
         }
-        Iterator<Holder<SymphonicInstrument>> iterator = SymphonicRegistries.INSTRUMENT.getTagOrEmpty(this.instrumentTag).iterator();
-        if (iterator.hasNext()) {
-            return Optional.of(iterator.next());
-        }
-        return Optional.empty();
+        Iterator<Holder<SymphonicInstrument>> iterator = SymphonicRegistries.INSTRUMENT.getTagOrEmpty(this.validInstruments).iterator();
+        return iterator.hasNext() ? Optional.of(iterator.next()) : Optional.empty();
     }
 
     @Override

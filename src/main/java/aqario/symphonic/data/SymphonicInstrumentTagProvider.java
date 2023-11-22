@@ -1,7 +1,7 @@
 package aqario.symphonic.data;
 
 import aqario.symphonic.SymphonicInstrument;
-import aqario.symphonic.SymphonicInstrumentTags;
+import aqario.symphonic.tag.SymphonicInstrumentTags;
 import aqario.symphonic.SymphonicInstruments;
 import aqario.symphonic.registry.SymphonicRegistries;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;

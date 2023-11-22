@@ -1,9 +1,10 @@
 package aqario.symphonic.recipe;
 
 import aqario.symphonic.Symphonic;
-import aqario.symphonic.SymphonicInstrumentTags;
 import aqario.symphonic.item.CopperHornItem;
+import aqario.symphonic.item.SymphonicItems;
 import aqario.symphonic.mixin.GoatHornItemInvoker;
+import aqario.symphonic.tag.SymphonicInstrumentTags;
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.Instrument;
 import net.minecraft.item.ItemStack;
@@ -25,7 +26,7 @@ public class CopperHornRecipe extends ShapedRecipe {
         super(id, "", 3, 2, DefaultedList.copyOf(Ingredient.EMPTY,
                 Ingredient.ofItems(Items.COPPER_INGOT), Ingredient.ofItems(Items.GOAT_HORN), Ingredient.ofItems(Items.COPPER_INGOT),
                 Ingredient.EMPTY, Ingredient.ofItems(Items.COPPER_INGOT), Ingredient.EMPTY
-        ), new ItemStack(Symphonic.COPPER_HORN));
+        ), new ItemStack(SymphonicItems.COPPER_HORN));
     }
 
     @Override
@@ -43,8 +44,8 @@ public class CopperHornRecipe extends ShapedRecipe {
             if (instrument.get().isIn(InstrumentTags.SCREAMING_GOAT_HORNS)) tag = SymphonicInstrumentTags.SCREAMING_COPPER_HORNS;
         }
 
-        ItemStack copperHorn = new ItemStack(Symphonic.COPPER_HORN);
-        CopperHornItem.setRandomInstrumentFromTag(copperHorn, tag, RandomGenerator.createLegacy());
+        ItemStack copperHorn = new ItemStack(SymphonicItems.COPPER_HORN);
+        CopperHornItem.addInstrument(copperHorn, tag, RandomGenerator.createLegacy());
 
         return copperHorn;
     }
