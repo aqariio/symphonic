@@ -2,9 +2,9 @@ package aqario.symphonic;
 
 import aqario.symphonic.registry.SymphonicRegistries;
 import aqario.symphonic.sound.SymphonicSoundEvents;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryKey;
 
 public interface SymphonicInstruments {
     int DEFAULT_RANGE = 256;
@@ -26,64 +26,64 @@ public interface SymphonicInstruments {
 
     static void initialize(Registry<SymphonicInstrument> registry) {
         Registry.register(registry, GREAT_COPPER_HORN, new SymphonicInstrument(
-                SymphonicSoundEvents.COPPER_HORN_BASS_SOUNDS.get(0),
-                SymphonicSoundEvents.COPPER_HORN_HARMONY_SOUNDS.get(0),
-                SymphonicSoundEvents.COPPER_HORN_MELODY_SOUNDS.get(0),
-                DEFAULT_DURATION, DEFAULT_RANGE
+            SymphonicSoundEvents.ITEM_COPPER_HORN_BASS.get(0),
+            SymphonicSoundEvents.ITEM_COPPER_HORN_HARMONY.get(0),
+            SymphonicSoundEvents.ITEM_COPPER_HORN_MELODY.get(0),
+            DEFAULT_DURATION, DEFAULT_RANGE
         ));
         Registry.register(registry, OLD_COPPER_HORN, new SymphonicInstrument(
-                SymphonicSoundEvents.COPPER_HORN_BASS_SOUNDS.get(1),
-                SymphonicSoundEvents.COPPER_HORN_HARMONY_SOUNDS.get(1),
-                SymphonicSoundEvents.COPPER_HORN_MELODY_SOUNDS.get(1),
-                DEFAULT_DURATION, DEFAULT_RANGE
+            SymphonicSoundEvents.ITEM_COPPER_HORN_BASS.get(1),
+            SymphonicSoundEvents.ITEM_COPPER_HORN_HARMONY.get(1),
+            SymphonicSoundEvents.ITEM_COPPER_HORN_MELODY.get(1),
+            DEFAULT_DURATION, DEFAULT_RANGE
         ));
         Registry.register(registry, PURE_COPPER_HORN, new SymphonicInstrument(
-                SymphonicSoundEvents.COPPER_HORN_BASS_SOUNDS.get(2),
-                SymphonicSoundEvents.COPPER_HORN_HARMONY_SOUNDS.get(2),
-                SymphonicSoundEvents.COPPER_HORN_MELODY_SOUNDS.get(2),
-                DEFAULT_DURATION, DEFAULT_RANGE
+            SymphonicSoundEvents.ITEM_COPPER_HORN_BASS.get(2),
+            SymphonicSoundEvents.ITEM_COPPER_HORN_HARMONY.get(2),
+            SymphonicSoundEvents.ITEM_COPPER_HORN_MELODY.get(2),
+            DEFAULT_DURATION, DEFAULT_RANGE
         ));
         Registry.register(registry, MUMBLE_COPPER_HORN, new SymphonicInstrument(
-                SymphonicSoundEvents.COPPER_HORN_BASS_SOUNDS.get(3),
-                SymphonicSoundEvents.COPPER_HORN_HARMONY_SOUNDS.get(3),
-                SymphonicSoundEvents.COPPER_HORN_MELODY_SOUNDS.get(3),
-                DEFAULT_DURATION, DEFAULT_RANGE
+            SymphonicSoundEvents.ITEM_COPPER_HORN_BASS.get(3),
+            SymphonicSoundEvents.ITEM_COPPER_HORN_HARMONY.get(3),
+            SymphonicSoundEvents.ITEM_COPPER_HORN_MELODY.get(3),
+            DEFAULT_DURATION, DEFAULT_RANGE
         ));
         Registry.register(registry, DRY_COPPER_HORN, new SymphonicInstrument(
-                SymphonicSoundEvents.COPPER_HORN_BASS_SOUNDS.get(4),
-                SymphonicSoundEvents.COPPER_HORN_HARMONY_SOUNDS.get(4),
-                SymphonicSoundEvents.COPPER_HORN_MELODY_SOUNDS.get(4),
-                DEFAULT_DURATION, DEFAULT_RANGE
+            SymphonicSoundEvents.ITEM_COPPER_HORN_BASS.get(4),
+            SymphonicSoundEvents.ITEM_COPPER_HORN_HARMONY.get(4),
+            SymphonicSoundEvents.ITEM_COPPER_HORN_MELODY.get(4),
+            DEFAULT_DURATION, DEFAULT_RANGE
         ));
         Registry.register(registry, CLEAR_COPPER_HORN, new SymphonicInstrument(
-                SymphonicSoundEvents.COPPER_HORN_BASS_SOUNDS.get(5),
-                SymphonicSoundEvents.COPPER_HORN_HARMONY_SOUNDS.get(5),
-                SymphonicSoundEvents.COPPER_HORN_MELODY_SOUNDS.get(5),
-                DEFAULT_DURATION, DEFAULT_RANGE
+            SymphonicSoundEvents.ITEM_COPPER_HORN_BASS.get(5),
+            SymphonicSoundEvents.ITEM_COPPER_HORN_HARMONY.get(5),
+            SymphonicSoundEvents.ITEM_COPPER_HORN_MELODY.get(5),
+            DEFAULT_DURATION, DEFAULT_RANGE
         ));
         Registry.register(registry, FRESH_COPPER_HORN, new SymphonicInstrument(
-                SymphonicSoundEvents.COPPER_HORN_BASS_SOUNDS.get(6),
-                SymphonicSoundEvents.COPPER_HORN_HARMONY_SOUNDS.get(6),
-                SymphonicSoundEvents.COPPER_HORN_MELODY_SOUNDS.get(6),
-                DEFAULT_DURATION, DEFAULT_RANGE
+            SymphonicSoundEvents.ITEM_COPPER_HORN_BASS.get(6),
+            SymphonicSoundEvents.ITEM_COPPER_HORN_HARMONY.get(6),
+            SymphonicSoundEvents.ITEM_COPPER_HORN_MELODY.get(6),
+            DEFAULT_DURATION, DEFAULT_RANGE
         ));
         Registry.register(registry, SECRET_COPPER_HORN, new SymphonicInstrument(
-                SymphonicSoundEvents.COPPER_HORN_BASS_SOUNDS.get(7),
-                SymphonicSoundEvents.COPPER_HORN_HARMONY_SOUNDS.get(7),
-                SymphonicSoundEvents.COPPER_HORN_MELODY_SOUNDS.get(7),
-                DEFAULT_DURATION, DEFAULT_RANGE
+            SymphonicSoundEvents.ITEM_COPPER_HORN_BASS.get(7),
+            SymphonicSoundEvents.ITEM_COPPER_HORN_HARMONY.get(7),
+            SymphonicSoundEvents.ITEM_COPPER_HORN_MELODY.get(7),
+            DEFAULT_DURATION, DEFAULT_RANGE
         ));
         Registry.register(registry, FEARLESS_COPPER_HORN, new SymphonicInstrument(
-                SymphonicSoundEvents.COPPER_HORN_BASS_SOUNDS.get(8),
-                SymphonicSoundEvents.COPPER_HORN_HARMONY_SOUNDS.get(8),
-                SymphonicSoundEvents.COPPER_HORN_MELODY_SOUNDS.get(8),
-                DEFAULT_DURATION, DEFAULT_RANGE
+            SymphonicSoundEvents.ITEM_COPPER_HORN_BASS.get(8),
+            SymphonicSoundEvents.ITEM_COPPER_HORN_HARMONY.get(8),
+            SymphonicSoundEvents.ITEM_COPPER_HORN_MELODY.get(8),
+            DEFAULT_DURATION, DEFAULT_RANGE
         ));
         Registry.register(registry, SWEET_COPPER_HORN, new SymphonicInstrument(
-                SymphonicSoundEvents.COPPER_HORN_BASS_SOUNDS.get(9),
-                SymphonicSoundEvents.COPPER_HORN_HARMONY_SOUNDS.get(9),
-                SymphonicSoundEvents.COPPER_HORN_MELODY_SOUNDS.get(9),
-                DEFAULT_DURATION, DEFAULT_RANGE
+            SymphonicSoundEvents.ITEM_COPPER_HORN_BASS.get(9),
+            SymphonicSoundEvents.ITEM_COPPER_HORN_HARMONY.get(9),
+            SymphonicSoundEvents.ITEM_COPPER_HORN_MELODY.get(9),
+            DEFAULT_DURATION, DEFAULT_RANGE
         ));
     }
 }

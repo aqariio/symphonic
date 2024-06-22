@@ -1,19 +1,19 @@
 package aqario.symphonic.loot;
 
 import aqario.symphonic.Symphonic;
+import aqario.symphonic.SymphonicInstrument;
+import aqario.symphonic.item.CopperHornItem;
+import aqario.symphonic.registry.SymphonicRegistries;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSyntaxException;
-import aqario.symphonic.SymphonicInstrument;
-import aqario.symphonic.item.CopperHornItem;
-import aqario.symphonic.registry.SymphonicRegistries;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.context.LootContext;
 import net.minecraft.loot.function.ConditionalLootFunction;
 import net.minecraft.loot.function.LootFunctionType;
-import net.minecraft.tag.TagKey;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 

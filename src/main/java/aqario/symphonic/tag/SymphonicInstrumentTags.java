@@ -3,7 +3,7 @@ package aqario.symphonic.tag;
 import aqario.symphonic.Symphonic;
 import aqario.symphonic.SymphonicInstrument;
 import aqario.symphonic.registry.SymphonicRegistries;
-import net.minecraft.tag.TagKey;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
 public interface SymphonicInstrumentTags {

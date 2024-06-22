@@ -5,18 +5,17 @@ import aqario.symphonic.registry.SymphonicRegistries;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.Holder;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.tag.TagKey;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.*;
-import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.random.RandomGenerator;
-import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
@@ -61,18 +60,9 @@ public class CopperHornItem extends Item {
     }
 
     @Override
-    public void appendStacks(ItemGroup group, DefaultedList<ItemStack> stacks) {
-        if (this.isInGroup(group)) {
-            for (Holder<SymphonicInstrument> Holder : SymphonicRegistries.INSTRUMENT.getTagOrEmpty(this.validInstruments)) {
-                stacks.add(addInstrument(SymphonicItems.COPPER_HORN, Holder));
-            }
-        }
-    }
-
-    @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
-        Optional<Holder<SymphonicInstrument>> optional = this.getInstrument(itemStack);
+        Optional<? extends Holder<SymphonicInstrument>> optional = this.getInstrument(itemStack);
         if (optional.isPresent()) {
             SymphonicInstrument instrument = optional.get().value();
             user.setCurrentHand(hand);
@@ -85,11 +75,11 @@ public class CopperHornItem extends Item {
 
     @Override
     public int getMaxUseTime(ItemStack stack) {
-        Optional<Holder<SymphonicInstrument>> optional = this.getInstrument(stack);
+        Optional<? extends Holder<SymphonicInstrument>> optional = this.getInstrument(stack);
         return optional.map(copperHornInstrumentHolder -> copperHornInstrumentHolder.value().useDuration()).orElse(0);
     }
 
-    public Optional<Holder<SymphonicInstrument>> getInstrument(ItemStack stack) {
+    public Optional<? extends Holder<SymphonicInstrument>> getInstrument(ItemStack stack) {
         Identifier identifier;
         NbtCompound nbtCompound = stack.getNbt();
         if (nbtCompound != null && (identifier = Identifier.tryParse(nbtCompound.getString(INSTRUMENT_KEY))) != null) {
@@ -106,8 +96,12 @@ public class CopperHornItem extends Item {
 
     private static void playSound(World world, PlayerEntity player, SymphonicInstrument instrument) {
         SoundEvent soundEvent = instrument.melodySoundEvent();
-        if (player.getPitch() <= -45.0) soundEvent = instrument.harmonySoundEvent();
-        if (player.isSneaking()) soundEvent = instrument.bassSoundEvent();
+        if (player.getPitch() <= -45.0) {
+            soundEvent = instrument.harmonySoundEvent();
+        }
+        if (player.isSneaking()) {
+            soundEvent = instrument.bassSoundEvent();
+        }
 
         float f = instrument.range() / 16.0f;
         world.playSoundFromEntity(player, player, soundEvent, SoundCategory.RECORDS, f, 1.0f);

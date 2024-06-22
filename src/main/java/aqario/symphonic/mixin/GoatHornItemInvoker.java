@@ -3,7 +3,7 @@ package aqario.symphonic.mixin;
 import net.minecraft.item.Instrument;
 import net.minecraft.item.InstrumentItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Holder;
+import net.minecraft.registry.Holder;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 

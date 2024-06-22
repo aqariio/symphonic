@@ -1,6 +1,5 @@
 {
   "item.symphonic.copper_horn": "Copper Horn",
-
   "instrument.symphonic.great_copper_horn": "Great Sky Falling",
   "instrument.symphonic.old_copper_horn": "Old Hymn Resting",
   "instrument.symphonic.pure_copper_horn": "Pure Water Desire",
@@ -11,6 +10,5 @@
   "instrument.symphonic.secret_copper_horn": "Secret Lake Tear",
   "instrument.symphonic.fearless_copper_horn": "Fearless River Gift",
   "instrument.symphonic.sweet_copper_horn": "Sweet Moon Love",
-
   "subtitles.item.copper_horn.play": "Copper Horn plays"
 }

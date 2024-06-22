@@ -5,8 +5,9 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
 public class SymphonicDataGenerator implements DataGeneratorEntrypoint {
     @Override
-    public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
-        fabricDataGenerator.addProvider(SymphonicInstrumentTagProvider::new);
-        fabricDataGenerator.addProvider(SymphonicRecipeProvider::new);
+    public void onInitializeDataGenerator(FabricDataGenerator generator) {
+        FabricDataGenerator.Pack pack = generator.createPack();
+        pack.addProvider(SymphonicInstrumentTagProvider::new);
+        pack.addProvider(SymphonicRecipeProvider::new);
     }
 }
