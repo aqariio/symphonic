@@ -50,7 +50,7 @@ public class SetCopperHornInstrumentFunction extends ConditionalLootFunction {
         @Override
         public SetCopperHornInstrumentFunction fromJson(JsonObject jsonObject, JsonDeserializationContext jsonDeserializationContext, LootCondition[] lootConditions) {
             String string = JsonHelper.getString(jsonObject, "options");
-            if (!string.startsWith("#")) {
+            if(!string.startsWith("#")) {
                 throw new JsonSyntaxException("Inline tag value not supported: " + string);
             }
             return new SetCopperHornInstrumentFunction(lootConditions, TagKey.of(SymphonicRegistries.INSTRUMENT_KEY, new Identifier(string.substring(1))));

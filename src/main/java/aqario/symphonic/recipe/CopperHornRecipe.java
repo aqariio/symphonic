@@ -10,22 +10,22 @@ import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.Instrument;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.recipe.CraftingCategory;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.ShapedRecipe;
+import net.minecraft.recipe.book.CraftingRecipeCategory;
 import net.minecraft.registry.DynamicRegistryManager;
-import net.minecraft.registry.Holder;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.InstrumentTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.util.random.RandomGenerator;
+import net.minecraft.util.math.random.Random;
 
 import java.util.Optional;
 
 public class CopperHornRecipe extends ShapedRecipe {
-    public CopperHornRecipe(Identifier id, CraftingCategory category) {
+    public CopperHornRecipe(Identifier id, CraftingRecipeCategory category) {
         super(id, "", category, 3, 2, DefaultedList.copyOf(Ingredient.EMPTY,
             Ingredient.ofItems(Items.COPPER_INGOT), Ingredient.ofItems(Items.GOAT_HORN), Ingredient.ofItems(Items.COPPER_INGOT),
             Ingredient.EMPTY, Ingredient.ofItems(Items.COPPER_INGOT), Ingredient.EMPTY
@@ -35,24 +35,24 @@ public class CopperHornRecipe extends ShapedRecipe {
     @Override
     public ItemStack craft(RecipeInputInventory inventory, DynamicRegistryManager dynamicRegistryManager) {
         ItemStack goatHorn = ItemStack.EMPTY;
-        for (int i = 0; i < inventory.size() && goatHorn.isEmpty(); ++i) {
+        for(int i = 0; i < inventory.size() && goatHorn.isEmpty(); ++i) {
             ItemStack itemStack = inventory.getStack(i);
-            if (!itemStack.isOf(Items.GOAT_HORN)) {
+            if(!itemStack.isOf(Items.GOAT_HORN)) {
                 continue;
             }
             goatHorn = itemStack;
         }
         TagKey<SymphonicInstrument> tag = SymphonicInstrumentTags.REGULAR_COPPER_HORNS;
 
-        Optional<Holder<Instrument>> instrument = ((GoatHornItemInvoker) goatHorn.getItem()).invokeGetInstrument(goatHorn);
-        if (instrument.isPresent()) {
-            if (instrument.get().isIn(InstrumentTags.SCREAMING_GOAT_HORNS)) {
+        Optional<RegistryEntry<Instrument>> instrument = ((GoatHornItemInvoker) goatHorn.getItem()).invokeGetInstrument(goatHorn);
+        if(instrument.isPresent()) {
+            if(instrument.get().isIn(InstrumentTags.SCREAMING_GOAT_HORNS)) {
                 tag = SymphonicInstrumentTags.SCREAMING_COPPER_HORNS;
             }
         }
 
         ItemStack copperHorn = new ItemStack(SymphonicItems.COPPER_HORN);
-        CopperHornItem.addInstrument(copperHorn, tag, RandomGenerator.createLegacy());
+        CopperHornItem.addInstrument(copperHorn, tag, Random.create());
 
         return copperHorn;
     }

@@ -8,19 +8,18 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
-import net.minecraft.registry.Holder;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
-import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
 public class SymphonicItems {
-    public static final Item COPPER_HORN = register("copper_horn", new CopperHornItem(new QuiltItemSettings().maxCount(1), SymphonicInstrumentTags.COPPER_HORNS));
+    public static final Item COPPER_HORN = register("copper_horn", new CopperHornItem(new Item.Settings().maxCount(1), SymphonicInstrumentTags.COPPER_HORNS));
 
     private static Item register(String id, Item item) {
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS_AND_UTILITIES).register(entries -> {
-            for (Holder<SymphonicInstrument> instrument : SymphonicRegistries.INSTRUMENT.getTagOrEmpty(SymphonicInstrumentTags.COPPER_HORNS)) {
-                entries.addStack(CopperHornItem.addInstrument(COPPER_HORN, instrument), ItemGroup.Visibility.PARENT_AND_SEARCH_TABS);
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
+            for(RegistryEntry<SymphonicInstrument> instrument : SymphonicRegistries.INSTRUMENT.iterateEntries(SymphonicInstrumentTags.COPPER_HORNS)) {
+                entries.add(CopperHornItem.addInstrument(COPPER_HORN, instrument), ItemGroup.StackVisibility.PARENT_AND_SEARCH_TABS);
             }
         });
         return Registry.register(Registries.ITEM, new Identifier(Symphonic.ID, id), item);

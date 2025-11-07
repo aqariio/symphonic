@@ -9,6 +9,10 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 
 public class SymphonicRegistries {
-    public static final RegistryKey<Registry<SymphonicInstrument>> INSTRUMENT_KEY = RegistryKey.ofRegistry(new Identifier(Symphonic.ID, "instrument"));
-    public static final DefaultedRegistry<SymphonicInstrument> INSTRUMENT = FabricRegistryBuilder.createDefaulted(INSTRUMENT_KEY, new Identifier(Symphonic.ID, "great_copper_horn")).buildAndRegister();
+    public static final RegistryKey<Registry<SymphonicInstrument>> INSTRUMENT_KEY = RegistryKey
+        .ofRegistry(new Identifier(Symphonic.ID, "instrument"));
+
+    public static final DefaultedRegistry<SymphonicInstrument> INSTRUMENT = FabricRegistryBuilder
+        .createDefaulted(INSTRUMENT_KEY, new Identifier(Symphonic.ID, "great_copper_horn"))
+        .buildAndRegister();
 }

@@ -16,12 +16,12 @@ public class SymphonicSoundEvents {
 
     private static ImmutableList<SoundEvent> registerCopperHornSounds(CopperHornSoundType type) {
         return IntStream.range(0, 10).mapToObj(variant ->
-                SymphonicSoundEvents.register("item.copper_horn.sound." + type.value + "." + variant)
+            SymphonicSoundEvents.register("item.copper_horn.sound." + type.value + "." + variant)
         ).collect(ImmutableList.toImmutableList());
     }
 
     private static SoundEvent register(String id) {
-        return Registry.register(Registries.SOUND_EVENT, new Identifier(Symphonic.ID, id), SoundEvent.createVariableRangeEvent(new Identifier(Symphonic.ID, id)));
+        return Registry.register(Registries.SOUND_EVENT, new Identifier(Symphonic.ID, id), SoundEvent.of(new Identifier(Symphonic.ID, id)));
     }
 
     private enum CopperHornSoundType {

@@ -1,16 +1,16 @@
 package aqario.symphonic.mixin;
 
+import net.minecraft.item.GoatHornItem;
 import net.minecraft.item.Instrument;
-import net.minecraft.item.InstrumentItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Holder;
+import net.minecraft.registry.entry.RegistryEntry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
 import java.util.Optional;
 
-@Mixin(InstrumentItem.class)
+@Mixin(GoatHornItem.class)
 public interface GoatHornItemInvoker {
     @Invoker
-    Optional<Holder<Instrument>> invokeGetInstrument(ItemStack stack);
+    Optional<RegistryEntry<Instrument>> invokeGetInstrument(ItemStack stack);
 }

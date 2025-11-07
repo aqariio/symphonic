@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "symphonic",
+  "version": "${version}",
+  "name": "Symphonic",
+  "description": "An unfinished symphony",
+  "authors": [
+    "aqario"
+  ],
+  "contact": {
+    "sources": "https://github.com/aqariio/symphonic"
+  },
+  "license": "MIT",
+  "icon": "assets/symphonic/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "aqario.symphonic.Symphonic"
+    ],
+    "client": [
+      "aqario.symphonic.SymphonicClient"
+    ]
+  },
+  "mixins": [
+    "symphonic.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.10",
+    "minecraft": "~1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+}

@@ -3,11 +3,12 @@
 build/
 out/
 classes/
+logs/
 
-# Quilt Loom
+# Fabric Loom
 remappedSrc/
 run/
-logs/
+common/src/main/generated/
 
 # Eclipse
 *.launch
